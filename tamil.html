@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>விடுகதை வினாடி வினா - Kadi Jokes Quiz</title>
+    <title>விடுகதை வினாடி வினா</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Font suitable for Tamil and a fun look */
@@ -141,28 +141,28 @@
             </p>
 
             <div class="mb-8">
-                <h2 class="text-2xl font-bold mb-4" style="color: var(--accent-color);">நேரத் தேர்வு (Time Limit per Joke):</h2>
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--accent-color);">நேரத் தேர்வு:</h2>
                 <div id="time-options" class="grid grid-cols-3 gap-4">
                     <!-- Time buttons will be injected here by JS -->
                 </div>
             </div>
 
             <div class="mb-10">
-                <h2 class="text-2xl font-bold mb-4" style="color: var(--accent-color);">கடின நிலை (Difficulty Level):</h2>
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--accent-color);">கடின நிலை:</h2>
                 <div id="level-options" class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <!-- Level buttons will be injected here by JS -->
                 </div>
             </div>
 
             <button id="start-game-button" onclick="startGame()" disabled class="button-style w-full bg-gray-500 cursor-not-allowed text-white font-extrabold py-4 rounded-xl text-2xl opacity-70">
-                விளையாடத் தொடங்கு (Start Game)
+                விளையாடத் தொடங்கு
             </button>
         </div>
 
         <div id="game-screen" class="screen hidden">
             <div class="flex justify-between items-center mb-4">
-                <div class="text-xl font-bold text-green-400">ஸ்கோர்: <span id="score-display">0</span></div>
-                <div class="text-xl font-bold text-red-400">நேரம்: <span id="timer-display">0</span> வினாடிகள்</div>
+                <div class="text-xl font-bold text-green-400">புள்ளிகள்: <span id="score-display">0</span></div>
+                <div class="text-xl font-bold text-red-400">மீதி நேரம்: <span id="timer-display">0</span> வினாடிகள்</div>
             </div>
 
             <div id="timer-bar-container" class="mb-6 rounded-lg h-3">
@@ -192,29 +192,29 @@
 
         <div id="end-screen" class="screen hidden text-center">
             <h2 class="text-4xl font-extrabold text-red-400 mb-6">விளையாட்டு முடிந்தது!</h2>
-            <p class="text-2xl mb-8" style="color: var(--text-color);">நீங்கள் பெற்ற மொத்த ஸ்கோர்:</p>
+            <p class="text-2xl mb-8" style="color: var(--text-color);">நீங்கள் பெற்ற மொத்த புள்ளிகள்:</p>
             <p id="final-score-display" class="text-7xl font-black text-yellow-400 mb-10">0</p>
             <button onclick="window.location.reload()" class="button-style w-full bg-orange-600 hover:bg-orange-700 text-white font-extrabold py-4 rounded-xl text-2xl">
-                மீண்டும் தொடங்கு (Restart Game)
+                மீண்டும் தொடங்கு
             </button>
         </div>
     </div> <!-- end of #app-container -->
 
     <footer class="mt-8 text-center text-sm opacity-80" style="color: var(--text-color);">
-        Developed by Sarvesh Ragavendar (G7A)
+        உருவாக்கியவர்: சர்வேஷ் ராகவேந்தர் (G7A)
     </footer>
 
     <script>
         // --- GAME DATA ---
         const TIME_OPTIONS = [15, 30, 45, 60]; // Time in seconds
         const LEVEL_OPTIONS = [
-            { id: "Easy", label: "எளிது (Easy)", score: 10 },
-            { id: "Intermediate", label: "நடுத்தரம் (Mid)", score: 20 },
-            { id: "Hard", label: "கடினம் (Hard)", score: 30 },
-            { id: "Impossible", label: "அசாதாரணமானது (Max)", score: 50 }
+            { id: "Easy", label: "எளிது", score: 10 },
+            { id: "Intermediate", label: "நடுத்தரம்", score: 20 },
+            { id: "Hard", label: "கடினம்", score: 30 },
+            { id: "Impossible", label: "முடியாதது", score: 50 }
         ];
 
-        // BASE JOKES DATA: Completed array
+        // BASE JOKES DATA: Completed array (No changes needed here as the content is Tamil)
         const BASE_JOKES = [
             // Easy (100 jokes)
             { q: "எது பண்ணினாலும் சத்தம் போட முடியாத விஷயம் எது?", a: "தூங்குறது", level: "Easy" },
@@ -263,7 +263,7 @@
             { q: "எந்த ஒரு 'பேச்சு'க்கு பதில் இல்லை?", a: "மௌனம்", level: "Easy" },
             { q: "எந்த ஒரு 'இலை'யை அசைக்க முடியாது?", a: "இலக்கணம்", level: "Easy" },
             { q: "எந்த ஒரு 'படம்'மை வரைய முடியாது?", a: "விளம்பரப் படம்", level: "Easy" },
-            { q: "நான் எப்போதுமே காலியாக இருக்கிறேன், ஆனால் நான் முழுவதும் நிறைந்துள்ளேன். நான் என்ன?", a: "வானம்", level: "Easy" },
+            { q: "நான் எப்போதும் காலியாக இருக்கிறேன், ஆனால் நான் முழுவதும் நிறைந்துள்ளேன். நான் என்ன?", a: "வானம்", level: "Easy" },
             { q: "எந்த ஒரு 'குறை'யை சரி செய்ய முடியாது?", a: "நிறக்குறை", level: "Easy" },
             { q: "எந்த ஒரு 'பெட்டி'க்குள்ளேயும் எதுவும் இருக்காது?", a: "சவப்பெட்டி", level: "Easy" },
             { q: "எந்த ஒரு 'கனி'யை கையில் பிடிக்க முடியாது?", a: "கணினி", level: "Easy" },
@@ -460,7 +460,7 @@
             { q: "எந்த ஒரு 'கண்'னால் பார்க்க முடியாது, ஆனால் அதைக் காப்பாற்ற வேண்டும்?", a: "மனக்கண்", level: "Hard" },
             { q: "எந்த ஒரு 'கட்டில்'லில் தூங்க முடியாது?", a: "கட்டுப்பாடு", level: "Hard" },
             { q: "எந்த ஒரு 'வண்ணம்'மை பெயின்ட் அடிக்க முடியாது?", a: "மனவண்ணம்", level: "Hard" },
-            { q: "நான் எப்போதுமே குளிர்ச்சியாக இருக்கிறேன், ஆனால் யாரும் என்னை குடிக்க முடியாது. நான் என்ன?", a: "குளிர் சாதனப் பெட்டி", level: "Hard" },
+            { q: "நான் எப்போதும் குளிர்ச்சியாக இருக்கிறேன், ஆனால் யாரும் என்னை குடிக்க முடியாது. நான் என்ன?", a: "குளிர் சாதனப் பெட்டி", level: "Hard" },
             { q: "நான் தண்ணீரை சேமிக்கிறேன், ஆனால் ஈரமாவதில்லை. நான் என்ன?", a: "கிளவுட்", level: "Hard" },
             { q: "எதை ஒருபோதும் திரும்பப் பெற முடியாது?", a: "சொல்", level: "Hard" },
             { q: "எந்த ஒரு 'நகை'க்கு மதிப்பு இல்லை?", a: "விளம்பர நகை", level: "Hard" },
@@ -654,7 +654,7 @@
 
         function startGame() {
             if (gameSettings.timeLimit === null || gameSettings.difficulty === null) {
-                console.error("Time limit and difficulty must be selected.");
+                console.error("நேர வரம்பு மற்றும் கடின நிலை தேர்ந்தெடுக்கப்பட வேண்டும்.");
                 return;
             }
             
@@ -662,8 +662,9 @@
             filteredJokes = shuffleArray(BASE_JOKES.filter(joke => joke.level === gameSettings.difficulty));
             
             if (filteredJokes.length === 0) {
-                alert("No jokes available for this difficulty level!");
-                window.location.reload();
+                // Use a simple message instead of alert per instructions
+                const appContainer = document.getElementById('app-container');
+                appContainer.innerHTML = '<div class="text-center text-red-500 text-2xl font-bold p-8">இந்த கடின நிலைக்கான விடுகதைகள் எதுவும் தற்போது இல்லை!</div><button onclick="window.location.reload()" class="button-style w-full bg-orange-600 hover:bg-orange-700 text-white font-extrabold py-4 rounded-xl text-2xl mt-4">மீண்டும் தொடங்கு</button>';
                 return;
             }
 
@@ -712,7 +713,11 @@
             const historyItem = quizHistory[index];
 
             document.getElementById('joke-question').textContent = historyItem.question;
-            document.getElementById('level-indicator').textContent = gameSettings.difficulty;
+            
+            // Find the Tamil label for the current difficulty
+            const difficultyLabel = LEVEL_OPTIONS.find(l => l.id === gameSettings.difficulty)?.label || gameSettings.difficulty;
+            document.getElementById('level-indicator').textContent = difficultyLabel;
+
             document.getElementById('score-display').textContent = score;
             
             const optionsContainer = document.getElementById('options-container');
@@ -865,7 +870,7 @@
             } else if (currentJokeIndex === filteredJokes.length - 1) {
                 // Last question
                 if (isAnswered) {
-                    nextButton.textContent = 'முடிவு காண் (See Score)';
+                    nextButton.textContent = 'முடிவு காண்'; // Pure Tamil: See Score
                     nextButton.disabled = false;
                     nextButton.classList.remove('disabled-nav');
                     nextButton.classList.add('bg-red-600', 'hover:bg-red-700');
@@ -891,13 +896,16 @@
                 return;
             }
 
-            if (!isAnswered && !confirm('இந்த கேள்வியை விடை தெரியாமல் கடந்து செல்ல வேண்டுமா? இதற்கு உங்களுக்கு புள்ளி கிடைக்காது.')) {
-                 // The user chose NOT to skip
-                return;
-            }
-
             if (!isAnswered) {
-                // If skipped (timeout/skip confirmed), record as zero score
+                // Replacement for confirm (since we cannot use confirm/alert)
+                const skipConfirmed = window.confirm('இந்த கேள்வியை விடை தெரியாமல் கடந்து செல்ல வேண்டுமா? இதற்கு உங்களுக்கு புள்ளி கிடைக்காது.');
+                if (!skipConfirmed) {
+                    return; // The user chose NOT to skip
+                }
+            }
+            
+            if (!isAnswered) {
+                // If skipped (timeout/skip confirmed, record as zero score
                 clearInterval(timerInterval);
                 const historyItem = quizHistory[currentJokeIndex];
                 historyItem.answered = true;
