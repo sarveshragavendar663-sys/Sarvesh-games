@@ -122,7 +122,7 @@
 
     </style>
 </head>
-<body data-theme="dark" class="min-h-screen flex items-center justify-center p-4">
+<body data-theme="dark" class="min-h-screen flex flex-col items-center justify-center p-4">
     <div id="app-container" class="w-full max-w-xl mx-auto card p-6 md:p-8 rounded-xl">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl md:text-4xl font-extrabold text-center tracking-wide" style="color: var(--header-color);">
@@ -198,7 +198,11 @@
                 மீண்டும் தொடங்கு (Restart Game)
             </button>
         </div>
-    </div>
+    </div> <!-- end of #app-container -->
+
+    <footer class="mt-8 text-center text-sm opacity-80" style="color: var(--text-color);">
+        Developed by Sarvesh Ragavendar (G7A)
+    </footer>
 
     <script>
         // --- GAME DATA ---
@@ -207,7 +211,7 @@
             { id: "Easy", label: "எளிது (Easy)", score: 10 },
             { id: "Intermediate", label: "நடுத்தரம் (Mid)", score: 20 },
             { id: "Hard", label: "கடினம் (Hard)", score: 30 },
-            { id: "Impossible", label: "முடியாதது (Max)", score: 50 }
+            { id: "Impossible", label: "அசாதாரணமானது (Max)", score: 50 }
         ];
 
         // BASE JOKES DATA: Completed array
